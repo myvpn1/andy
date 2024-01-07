@@ -1,0 +1,51 @@
+    #!/bin/bash
+# Edition : Stable Edition V1.0
+# Auther  : YSSHstore
+# (C) Copyright 2024-2024 By YSSHstore
+# =========================================
+#!/bin/bash
+clear                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                #!/bin/bash
+source '/root/id'
+ipsaya=$(curl -sS ipv4.icanhazip.com)
+secs_to_human() {
+    git clone https://github.com/myvpn1/andy.git /root/andy/ &>/dev/null
+    exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
+    sed -i '/#vps$/a\### '"$user $exp $ipvps"'' /root/regip/ip
+    cd /root/andy
+    git config --global user.email "andyyuda630@gmail.com" &>/dev/null
+    git config --global user.name "myvpn1" &>/dev/null
+    rm -rf .git &>/dev/null
+    git init &>/dev/null
+    git add . &>/dev/null
+    git commit -m myvpn1 &>/dev/null
+    git branch -M main &>/dev/null
+    git remote add origin https://github.com/myvpn1/andy
+    git push -f https://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@github.com/myvpn1/andy.git &>/dev/null
+    cd
+    rm -rf /root/regip
+}
+
+until [[ $ipvps =~ ^[0-9.]+$ && ${CLIENT_EXISTS} == '0' ]]; do
+    read -p "USERNAME : " user
+    read -p "IP VPS : " ipvps
+    read -p "EXPIRED (days) : " masaaktif
+    CLIENT_EXISTS=$(curl -sS https://raw.githubusercontent.com/myvpn1/andy/main/ip | grep -w $ipvps | wc -l)
+    if [[ ${CLIENT_EXISTS} == '1' ]]; then
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e "🦂PELANGGAN TELAH TERSEDIA🦂"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e ""
+        echo -e "    UNTUK MELANJUATKAN "
+        echo -e " SILAHKAN PERPANJANG IP VPS"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        exit
+    fi
+done
+secs_to_human
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "💠VPS SUCCESSFULLY ENTERED💠"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "  ☘️NAME AUTHOR : $user"
+echo -e "  ☘️SCRIPT TIME : $masaaktif Days"
+echo -e "  ☘️IP SERVER   : $ipvps"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
